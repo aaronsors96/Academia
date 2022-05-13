@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es-ES">
+    <head>
+        <meta charset="UTF-8"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <title>Academia Pepito</title>
+        <link rel="stylesheet" href="../CSS/encabezado.css">
+        <link rel="stylesheet" href="../CSS/menu.css">
+        <script>
+            //controldemensajes
+             window.onload = iniciar;
+            function iniciar(){
+                //programa principal
+                escuchar();
+                capturarMensaje();
+            }
+            
+            function escuchar(){
+                document.getElementById("volver").addEventListener("click", volver);
+            }
+            function capturarMensaje(){
+                //fase1 capturamos todos los campos del search de la url
+                let mensaje =  window.location.search;
+                //fase2 creamos un objeto que recoge cada campo de la url
+                let urlParams = new URLSearchParams(mensaje);
+                //Mensaje tiene todos los campos de la url, el nuestro: mensaje.
+                //http://localhost/pooBBDD2022/webs/carreras/menuCarreras.html?mensaje=100
+                mensaje = urlParams.get('mensaje');
+                
+                /** trabajando con los mensajes... */
+                if(mensaje == "100"){
+                    verOcultar("Carrera dado de alta");
+                }else if(mensaje == "101"){
+                    verOcultar("Carrera no dado de alta, verifique.");
+                }else if(mensaje == "200"){
+                    verOcultar("Carrera dado de baja");
+                }else if(mensaje == "201"){
+                    verOcultar("Carrera no dado de baja, verifique.");
+                }else if(mensaje == "202"){
+                    verOcultar("Carrera no dado de baja, a petición del usuario.");
+                }else if(mensaje == "300"){
+                    verOcultar("Regresa de consulta de carreras.");
+                }else if(mensaje == "400"){
+                    verOcultar("Carrera modificada con éxito.");
+                }else if(mensaje == "401"){
+                    verOcultar("Error en al zona de modificación.");
+                }else if(mensaje == "402"){
+                    verOcultar("Error, no se ha modificado la carrera.");
+                }
+                
+            }
+            function verOcultar($mensaje){
+                let panel= document.getElementById("panelInformativo");
+                panel.innerHTML = $mensaje;
+               panel.style.display = "block";
+                setTimeout(function(){
+                   panel.style.display = "none";
+                }, 5000);
+            }    
+            function volver(){
+                window.history.go(-1);
+            }
+        </script>
+
+    </head>
+    <body>
+        <div id="contenedor">
+            <header>
+                <hgroup>
+                    <h1>Academia Pepito</h1>
+                    <h2>Menú Carreras</h2>
+                </hgroup>
+            </header>
+            <main>
+                <div class="caja">
+                    <a href="../php/carrerasAlta.php">Alta de carreras</a>
+                </div>
+                <div class="caja">
+                    <a href="../php/carrerasBaja.php">Baja de carreras</a>
+                </div>
+                <div class="caja">
+                    <a href="../php/consultaCarreras.php">Consulta de carreras</a>
+                </div>
+                <div class="caja">
+                    <a href="../php/carrerasModificacion.php">Modificación de carreras</a>
+                </div>
+                <div id="panelInformativo"></div>
+                <a href="../index.html"><button>Volver al index</button></a>
+            </main>
+        </div>
+    </body>
+</html>

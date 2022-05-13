@@ -1,0 +1,36 @@
+@charset "utf-8";
+:root{
+    --color: red;
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    
+}
+
+ body{
+    background-image:url(../fondo.jpg);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-attachment: fixed;
+    
+    
+ }
+#contenedor{
+    width: 60%;
+    margin: auto;
+    text-align: center;
+    
+}
+header{
+    width: 100%;
+    padding: 1%;
+    margin-top: 1%;
+    background-color: rgb(150, 255, 255);
+    border-bottom: 3px solid red;
+    text-align: center;
+    box-shadow: 2px 1px 1px black;
+    border-radius: 15px;
+}
+

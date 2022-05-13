@@ -1,0 +1,28 @@
+main{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2,100px);
+    gap: 1em;
+    margin-top: 2%;
+}
+
+main .caja{
+    min-height: 100px;
+    background-color:red;
+    border: 2px solid rgb(150, 255, 255);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+    box-shadow: 2px 1px 1px black;
+    
+}
+
+main .caja a{
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    font-size: 1.25em;
+    display: block;
+    
+}
